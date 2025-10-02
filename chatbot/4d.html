@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+    <title>React Basics</title>
+  </head>
+
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script>
+    <script type="text/babel">
+      function InputFields() {
+        const [showPassword, setShowPassword] = React.useState(false);
+
+        function toggleShowPassword() {
+          setShowPassword(!showPassword);
+        }
+        return (
+          <div>
+            <input type="email" placeholder="Email" />
+
+            <div>
+              <input
+                type={showPassword === false ? 'password' : 'text'}
+                placeholder="Password"
+              />
+              <button onClick={toggleShowPassword}>Show</button>
+            </div>
+          </div>
+        );
+      }
+
+    function Buttons(){
+      return(
+      <div>
+        <button>Login</button>
+        <button>Sign Up</button>
+    </div>
+
+    );
+    }
+
+      function App() {
+        return (
+          <>
+            <InputFields />
+            <Buttons />
+          </>
+        );
+      }
+
+      const container = document.querySelector(".js-container");
+      ReactDOM.createRoot(container).render(<App />);
+    </script>
+  </body>
+</html>
